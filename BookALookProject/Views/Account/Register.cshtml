@@ -1,0 +1,44 @@
+﻿@model BookALookProject.Models.RegisterViewModel
+
+
+<link href="~/Content/my-css/login.css" rel="stylesheet" />
+
+<div class="l-container">
+    <div class="forms">
+        @Html.ValidationSummary("", new { @class = "text-danger" })
+        <div class="form signup">
+            <span class="title">Create an account</span>
+
+            <form action="@Url.Action("Register","Account", new { ReturnUrl = ViewBag.ReturnUrl })" method="post">
+                @Html.AntiForgeryToken()
+                <div class="input-field">
+                    <input type="text" placeholder="Enter your full name" name="FullName" required>
+                </div>
+                <div class="input-field">
+                    <input type="text" placeholder="Enter your email" name="Email" required>
+                </div>
+                <div class="input-field">
+                    <input type="text" placeholder="Enter your phone number" name="PhoneNum" required>
+                </div>
+                <div class="input-field">
+                    <input type="password" class="password" placeholder="Create a password" name="Password" required>
+                </div>
+                <div class="input-field">
+                    <input type="password" class="password" placeholder="Confirm a password" name="ConfirmPassword" required>
+                </div>
+
+                <div class="input-field button">
+                    <input type="submit" value="Sign up">
+                </div>
+            </form>
+
+            <div class="login-signup">
+                <span class="text">
+                    Already have an account?
+                    <a href="@Url.Action("Login", "Account")" class="text login-link">Sign in</a>
+                </span>
+            </div>
+        </div>
+    </div>
+</div>
+

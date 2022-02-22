@@ -1,0 +1,70 @@
+﻿@model IEnumerable<BookALookProject.Models.Salon>
+<link href="~/Content/my-css/list.css" rel="stylesheet" />
+
+
+<div class="container">
+    <div class="list-title">
+        <p class="lt">@ViewBag.title</p>
+    </div>
+    <form class="row list-filters" action="@Url.Action("SearchSalons", "Home")" method="get">
+        <div class="col">
+            <label for="category">Category:</label>
+            <select class="input-field" id="category" name="Category">
+                <option data-position="0" value="0">All</option>
+                <option data-position="1" value="1">Hair</option>
+                <option data-position="2" value="2">Makeup</option>
+                <option data-position="3" value="3">Nails</option>
+                <option data-position="4" value="4">Lashes & Brows</option>
+                <option data-position="5" value="5">Skin</option>
+                <option data-position="6" value="6">Hair Removal</option>
+            </select>
+        </div>
+        <div class="col">
+            <label for="city">City:</label>
+            <select class="input-field" id="city" name="City">
+                <option data-position="0" value="">All</option>
+                <option data-position="1" value="Skopje">Skopje</option>
+                <option data-position="2" value="Bitola">Bitola</option>
+                <option data-position="3" value="Ohrid">Ohrid</option>
+            </select>
+        </div>
+        <div class="col">
+            <label for="title">Search:</label>
+            <input class="input-field" id="title" type="text" placeholder="Search by name..." name="Search">
+        </div>
+        <div class="col">
+            <div class="input-field mb-3"><input type="submit" class="filter-button" value="Filter"></div>
+        </div>
+    </form>
+    <div class="row justify-content-center">
+        @foreach (var salon in Model)
+        {
+            
+                var i = 1;
+                var names = "";
+                foreach (var Category in salon.Categories)
+                {
+                    names += Category.CategoryName;
+                    if (i < salon.Categories.Count)
+                    {
+                        names += ", ";
+                    }
+                    i++;
+                }
+            
+            <a href="@Url.Action("Salon", "Home", new { SalonId = salon.SalonId})" class="col-3 salon">
+                <div>
+                    <img src="@salon.ImagePath">
+                    <div class="salon-name" data-position="@salon.SalonId">
+                        <p class="salon-category">
+                            @names
+                        </p>
+                        <h3>@salon.Name</h3>
+                    </div>
+                </div>
+                <p class="salon-location" data-position="@salon.City"><i class="fas fa-map-marker-alt"></i>   @salon.City</p>
+            </a>
+        }
+    </div>
+</div>
+

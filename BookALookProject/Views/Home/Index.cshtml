@@ -1,0 +1,74 @@
+﻿<link href="~/Content/my-css/home.css" rel="stylesheet" />
+
+<div class="image-slideshow">
+    <p class="slideshow-text">
+        We help you get pampered and relaxed. Book your next appointment with any salon quickly and easily!
+    </p>
+</div>
+
+<div class="categories-container">
+    <div class="row">
+        <div class="col-md-2 col-4">
+            <div class="category">
+                <a class="cat-img" href="@Url.Action("Salons","Home", new { category = "Hair" })">
+                    <img src="~/Content/images/hair.png" />
+                    <p class="cat-name">
+                        HAIR
+                    </p>
+                </a>
+            </div>
+        </div>
+        <div class="col-md-2 col-4">
+            <div class="category">
+                <a class="cat-img" href="@Url.Action("Salons","Home", new { category = "Makeup"})">
+                    <img src="~/Content/images/makeup.png" />
+                    
+                    <p class="cat-name">
+                        MAKEUP
+                    </p>
+                </a>
+            </div>
+        </div>
+        <div class="col-md-2 col-4">
+            <div class="category">
+                <a class="cat-img" href="@Url.Action("Salons","Home", new { category = "Nails"})">
+                    <img src="~/Content/images/nails.png" />
+                    <p class="cat-name">
+                        NAILS
+                    </p>
+                </a>
+            </div>
+        </div>
+        <div class="col-md-2 col-4">
+            <div class="category">
+                <a class="cat-img" href="@Url.Action("Salons","Home", new { category = "Lashes & Brows"})">
+                    <img src="~/Content/images/lashes-brows.png" />
+                    <p class="cat-name">
+                        LASHES & BROWS
+                    </p>
+                </a>
+            </div>
+        </div>
+        <div class="col-md-2 col-4">
+            <div class="category">
+                <a class="cat-img" href="@Url.Action("Salons","Home", new { category = "Skin"})">
+                    <img src="~/Content/images/skin.png" />
+                    <p class="cat-name">
+                        SKIN
+                    </p>
+                </a>
+            </div>
+        </div>
+        <div class="col-md-2 col-4">
+            <div class="category">
+                <a class="cat-img" href="@Url.Action("Salons","Home", new { category = "Hair Removal"})">
+                    <img src="~/Content/images/hair-removal.png" />
+                    <p class="cat-name">
+                        HAIR REMOVAL
+                    </p>
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="~/Content/my-js/home.js"></script>

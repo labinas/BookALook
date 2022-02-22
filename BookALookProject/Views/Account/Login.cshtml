@@ -1,0 +1,45 @@
+﻿@using BookALookProject.Models
+@model LoginViewModel
+
+
+
+<link href="~/Content/my-css/login.css" rel="stylesheet" />
+
+<div class="l-container">
+    <div class="forms">
+        @Html.ValidationSummary("", new { @class = "text-danger" })
+        <div class="form login">
+            <span class="title">Login</span>
+
+            <form action="@Url.Action("Login", "Account", new { ReturnUrl = ViewBag.ReturnUrl })" method="post">
+                @Html.AntiForgeryToken()
+                <div class="input-field">
+                    <input type="text" placeholder="Enter your email" name="Email" required>
+                </div>
+                <div class="input-field">
+                    <input type="password" class="password" placeholder="Enter your password" name="Password" required>
+                </div>
+
+                <div class="checkbox-text">
+                    <div class="checkbox-content">
+                        <input type="checkbox" id="logCheck" name="RememberMe">
+                        <label for="logCheck" class="text">Remember me</label>
+                    </div>
+                </div>
+
+                <div class="input-field button">
+                    <input type="submit" value="Login Now">
+                </div>
+            </form>
+
+            <div class="login-signup">
+                <span class="text">
+                    Not a member?
+                    <a href="#" class="text signup-link">Signup now</a>
+                </span>
+            </div>
+        </div>
+
+
+    </div>
+</div>

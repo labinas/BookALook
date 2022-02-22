@@ -1,0 +1,49 @@
+
+.text{
+    font-size: 4vw;
+    text-shadow: 0 0 4px;
+    color: #010718;
+    text-align: center;
+    padding: 10px;
+}
+
+.app-logo{
+    width: 90%;
+}
+.appointments{
+    width: 80%;
+    margin: 0 auto;
+}
+.appointment{
+    box-shadow: 0px 0px 10px -1px rgba(0,0,0,0.7);
+    border: 1px solid #595959;
+    align-items: center;
+    padding: 10px;
+    font-size: 12px;
+    margin: 20px;
+}
+
+.appointment > .col-3{
+    height: inherit;
+}
+
+.appointment > .col-2{
+    text-align: right;
+}
+
+.app-logo{
+    width: 60%
+}
+
+.user-info p, .salon-info p{
+    font-weight: bolder;
+    margin: 0;
+}
+.user-info p > span, .salon-info p > span{
+    font-weight: normal;
+}
+.cancel-button{
+    width: 50px;
+    height: 50px;
+}
+

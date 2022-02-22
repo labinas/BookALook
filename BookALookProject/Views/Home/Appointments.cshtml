@@ -1,0 +1,38 @@
+﻿@model BookALookProject.Models.UserWithAppointments
+
+<link href="~/Content/my-css/appointments.css" rel="stylesheet" />
+
+<div class="container">
+    <div class="text">
+        Current appointments
+    </div>
+    <div class="appointments">
+        @foreach (var app in Model.Appointments)
+        {
+            <div class="row appointment">
+                <div class="col-3">
+                    <img class="app-logo" src="@app.Salon.ImagePath">
+                </div>
+                <div class="col-7">
+                    <div class="salon-info">
+                        <p>Salon name: <span class="salon-name">@app.Salon.Name</span></p>
+                        <p>Appointment category: <span class="app-category">@app.AppointmentCategory</span></p>
+                        <p>Appointment service: <span class="app-service">@app.AppointmentService</span></p>
+                        <p>When: <span class="app-time">@app.Date.Date, @app.Time.TimeOfDay</span></p>
+                    </div>
+                    <div class="user-info">
+                        <p>Client name: <span class="client-name">@app.Client.Name</span></p>
+                        <p>Client email: <span class="client-email">@app.Client.Email</span></p>
+                        <p>Client phone number: <span class="client-phone">@app.Client.PhoneNum</span></p>
+                    </div>
+                </div>
+                <div class="col-2">
+                    <a href="@Url.Action("RemoveAppointment", "Home", new { AppId = app.AppointmentId})"><img class="cancel-button" src="~/Content/images/x100.png"></a>
+                </div>
+            </div>
+        }
+
+
+
+    </div>
+</div>

@@ -1,0 +1,97 @@
+.list-filters{
+    margin-bottom: 30px;
+    justify-content: center;
+    align-items: center;
+}
+
+.input-field{
+    position: relative;
+    height: 50px;
+    width: 100%;
+}
+#category, #city, #title{
+    border: none;
+    outline: none;
+    font-size: 16px;
+    border-bottom: 2px solid #ccc;
+    border-top: 2px solid transparent;
+    transition: all 0.2s ease;
+}
+.input-field:focus, .input-field:active{
+    border-bottom-color: #FF10A0!important;
+}
+
+.filter-button{
+    width: 100%;
+    height: 100%;
+    margin-top: 10px;
+    border: none;
+    color: #fff;
+    font-size: 17px;
+    font-weight: 500;
+    letter-spacing: 1px;
+    border-radius: 6px;
+    background-color: #FF10A0;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+.filter-button:hover{
+    background-color: #D61079;
+}
+
+
+.salon{
+    position: relative;
+    background-color: #f9f9f9;
+    margin: 15px;
+    padding: 0;
+    width: 198px;
+    text-decoration: none;
+    border: 1px solid #dedce2;
+}
+
+.salon:hover{
+    box-shadow: 0px 0px 10px -1px rgba(0,0,0,0.7);
+    background-color: #FFE6ED;
+}
+
+.salon img{
+    width: 100%;
+    height: 50%;
+    padding: 30px;
+}
+.salon-name{
+    padding: 12px 12px 55px 12px;
+    min-height:59px;
+}
+
+.salon-name h3{
+    line-height:18px;
+    font-size:16px;
+    color: black;
+    font-weight: bold;
+}
+
+.salon-category {
+    color: #D61079;
+    line-height: 15px;
+    font-weight: bold;
+    font-size: 10px;
+    margin: 0;
+}
+.salon-location{
+    padding: 0 12px 12px 12px;
+    line-height: 15px;
+    font-size: 11px;
+    color: #747474;
+    margin: 0;
+    position: absolute;
+    bottom: 0;
+}
+.lt{
+    color: #010718;
+    text-align: center;
+    padding: 30px;
+    font-size: 6vw;
+    text-shadow: 1px 2px 6px;
+}

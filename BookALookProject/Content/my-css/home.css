@@ -1,0 +1,47 @@
+
+.image-slideshow {
+    background-image: url('../images/picture3.jpg');
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;   
+    height: 50vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: background-image 2s;
+}
+
+.slideshow-text{
+    position: absolute;
+    font-size: 5vw;
+    font-weight: bold;
+    color: white;
+    text-align: center;
+    text-shadow: -4px 2px 10px #000;
+}
+
+.categories-container{
+    padding: 50px;
+}
+
+.category{
+    padding: 20px;
+    text-align: center;
+}
+.cat-img{
+    width: 85%;
+}
+
+.cat-img img{
+    width: inherit;
+}
+.cat-name{
+    font-weight: bold;
+    font-size: 16px;
+}
+
+.cat-img:hover{
+    width: 100%;
+}
+
+

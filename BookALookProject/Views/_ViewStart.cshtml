@@ -1,0 +1,13 @@
+﻿@{
+    if (!this.User.Identity.IsAuthenticated)
+    {
+        Layout = "~/Views/Shared/_MasterPublic.cshtml";
+    }
+    else if (this.User.IsInRole("User"))
+    {
+        Layout = "~/Views/Shared/_MasterUser.cshtml";
+    }
+    else {
+        Layout = "~/Views/Shared/_MasterSalon.cshtml";
+    }
+}

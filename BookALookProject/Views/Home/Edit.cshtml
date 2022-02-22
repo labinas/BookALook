@@ -1,0 +1,75 @@
+﻿@model BookALookProject.Models.SalonWithServices
+<link href="~/Content/my-css/login.css" rel="stylesheet" />
+@{ 
+   
+}
+
+<div class="l-container">
+    <div class="forms">
+        <div class="form signup">
+            <span class="title">Edit your salon</span>
+
+            <form action="@Url.Action("Edit","Home")", method="post">
+                <div class="input-field">
+                    <input type="text" name="FullName" placeholder="Enter your salon name" value="@Model.Salon.Name" required>
+                </div>
+                <div class="input-field">
+                    <input type="text" name="PhoneNum" placeholder="Enter your salon phone number" value="@Model.Salon.PhoneNum" required>
+                </div>
+                <div class="input-field">
+                    <input type="text" name="Address" placeholder="Enter your salon address" value="@Model.Salon.Address" required>
+                </div>
+
+                <label for="category">Category:</label>
+                <select class="input-field select" id="category" name="Categories" multiple>
+
+                    <option data-position="1" value="Hair">Hair</option>
+                    <option data-position="2" value="Makeup">Makeup</option>
+                    <option data-position="3" value="Nails">Nails</option>
+                    <option data-position="4" value="Lashes & Brows">Lashes & Brows</option>
+                    <option data-position="5" value="Skin">Skin</option>
+                    <option data-position="6" value="Hair Removal">Hair removal</option>
+                </select>
+
+                <ul class="services-list">
+                    <span class="text">Services:</span>
+                    @foreach(var service in Model.SalonServices)
+            {
+                <li>@service.Name, @service.Price DEN</li>
+            }
+                </ul>
+
+                <div class="input-field">
+                    <a href="@Url.Action("Service","Home")">Add new service</a>
+                </div>
+
+                <label for="city">City:</label>
+                <select class="input-field select" id="city" value="" name="City">
+                    <option data-position="0">Select city</option>
+                    <option data-position="1">Skopje</option>
+                    <option data-position="2">Bitola</option>
+                    <option data-position="3">Ohrid</option>
+                </select>
+                <label for="from">Working hours from:</label>
+                <input type="time" name="WorkingFrom" id="from" value="@Model.Salon.WorkingFrom.TimeOfDay" required>
+
+                <label for="to">Working hours to:</label>
+                <input type="time" name="WorkingTo" value="@Model.Salon.WorkingTo.TimeOfDay" id="to" required>
+                <div class="input-field">
+                    <textarea name="SalonDescription" placeholder="Salon description" value="" required>@Model.Salon.Description</textarea>
+                </div>
+                <div class="input-field">
+                    <input name="Email" type="email" placeholder="Enter your salon email" value="@Model.Salon.Email" required>
+                </div>
+                <div class="input-field">
+                    <span class="text" style="display: block">Upload logo</span>
+                    <input type="file" name="File" >
+                </div>
+                <div class="input-field button">
+                    <input type="submit" value="Save">
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+

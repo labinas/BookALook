@@ -1,0 +1,75 @@
+﻿@model BookALookProject.Models.RegisterSalonViewModel
+<link href="~/Content/my-css/login.css" rel="stylesheet" />
+
+<div class="l-container">
+    <div class="forms">
+        @Html.ValidationSummary("", new { @class = "text-danger" })
+        <div class="form signup">
+            <span class="title">Register your salon</span>
+
+            <form action="@Url.Action("RegisterSalon","Account")" method="post" enctype="multipart/form-data">
+                @Html.AntiForgeryToken()
+                <div class="input-field">
+                    <input type="text" name="FullName" placeholder="Enter your salon name" required>
+                </div>
+                <div class="input-field">
+                    <input type="text" name="PhoneNum" placeholder="Enter your salon phone number" required>
+                </div>
+                <div class="input-field">
+                    <input type="text" name="Address" placeholder="Enter your salon address" required>
+                </div>
+
+                <label for="category">Category:</label>
+                <select class="input-field select" id="category" name="Categories" multiple>
+                    <option data-position="1" value="Hair">Hair</option>
+                    <option data-position="2" value="Makeup">Makeup</option>
+                    <option data-position="3" value="Nails">Nails</option>
+                    <option data-position="4" value="Lashes & Brows">Lashes & Brows</option>
+                    <option data-position="5" value="Skin">Skin</option>
+                    <option data-position="6" value="Hair Removal">Hair removal</option>
+                </select>
+                <label for="city">City:</label>
+                <select class="input-field select" id="city" name="City">
+                    <option data-position="0">All</option>
+                    <option data-position="1">Skopje</option>
+                    <option data-position="2">Bitola</option>
+                    <option data-position="3">Ohrid</option>
+                </select>
+                <label for="from">Working hours from:</label>
+                <input type="time" name="WorkingFrom" id="from" required>
+
+                <label for="to">Working hours to:</label>
+                <input type="time" name="WorkingTo" id="to" required>
+                <div class="input-field">
+                    <textarea name="SalonDescription" placeholder="Salon description" required></textarea>
+                </div>
+                <div class="input-field">
+                    <input name="Email" type="email" placeholder="Enter your salon email" required>
+                </div>
+                <div class="input-field">
+                    <input name="Password" type="password" class="password" placeholder="Create a password" required>
+                </div>
+                <div class="input-field">
+                    <input name="ConfirmPassword" type="password" class="password" placeholder="Confirm a password" required>
+                </div>
+
+                <div class="input-field">
+                    <span class="text" style="display: block">Upload logo</span>
+                    <input type="file" name="File" required>
+                </div>
+                <div class="input-field button">
+                    <input type="submit" value="Register">
+                </div>
+            </form>
+
+            <div class="login-signup">
+                <span class="text">With clicking register, an account is created for your salon.</span>
+                <span class="text">
+                    Already have an account?
+                    <a href="#" class="text login-link">Sign in</a>
+                </span>
+            </div>
+        </div>
+    </div>
+</div>
+

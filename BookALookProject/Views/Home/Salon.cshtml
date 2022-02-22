@@ -1,0 +1,120 @@
+﻿@model BookALookProject.Models.SalonWithServices
+<link href="~/Content/my-css/salon.css" rel="stylesheet" />
+@{
+    var i = 1;
+    var names = "";
+    foreach (var Category in Model.Salon.Categories)
+    {
+        names += Category.CategoryName;
+        if (i < Model.Salon.Categories.Count)
+        {
+            names += ", ";
+        }
+        i++;
+    }
+}
+
+<div class="image-container">
+    <p class="salon-name">
+        @Model.Salon.Name
+    </p>
+</div>
+<div class="container salon-info">
+    <div class="col-3">
+        <img class="salon-logo" src="@Model.Salon.ImagePath">
+    </div>
+    <div class="col-3">
+        <div class="category-info">
+            <i class="fas fa-solid fa-tag"></i>
+
+
+            <span class="category-name">@names</span>
+        </div>
+        <div class="city-info">
+            <i class="fas fa-solid fa-city"></i>
+            <span class="city-name">@Model.Salon.City</span>
+        </div>
+        <div class="address-info">
+            <i class="fas fa-solid fa-map-pin"></i>
+            <span class="address">@Model.Salon.Address</span>
+        </div>
+        <div class="working-hours-info">
+            <i class="fas fa-solid fa-clock"></i>
+            <span class="hours">@Model.Salon.WorkingFrom.TimeOfDay - @Model.Salon.WorkingTo.TimeOfDay</span>
+        </div>
+        <div class="phone-number-info">
+            <i class="fas fa-solid fa-phone"></i>
+            <span class="number">@Model.Salon.PhoneNum</span>
+        </div>
+        <div class="email-info">
+            <i class="fas fa-solid fa-at"></i>
+            <span class="email">@Model.Salon.Email</span>
+        </div>
+    </div>
+</div>
+<div class="salon-desc">
+    <p class="description">
+        @Model.Salon.Description
+    </p>
+</div>
+@if (ViewBag.LoggedIn)
+{
+    <div class="container">
+        <form id="bookAppointment" action="@Url.Action("Appointments", "Home")" method="post">
+            <p class="text">Book your appointment</p>
+            <div class="chooser" id="categoryChooser">
+                <input type="text" style="display:none" value="@Model.Salon.Name" name="SalonName" />
+                <p class="step">
+                    1. Choose category:
+                </p>
+                <div class="items">
+                    <select class="input-field select" id="categorySelection" name="AppointmentCategory">
+                        @foreach (var cat in Model.Salon.Categories)
+                        {
+                            <option data-category="@cat.CategoryId" value="@cat.CategoryName">@cat.CategoryName</option>
+                        }
+                    </select>
+                </div>
+            </div>
+            <div class="chooser" id="itemChooser">
+                <p class="step">
+                    2. Choose service:
+                </p>
+                <div class="items">
+                    <select class="input-field select" id="serviceList" name="AppointmentService">
+                        @foreach (var service in Model.SalonServices)
+                        {
+                            <option class="serviceOptionItem" value="@service.Name" data-category="@service.Category.CategoryId">@service.Name</option>
+                        }
+                    </select>
+                </div>
+            </div>
+            <div class="chooser" id="timeChooser">
+                <p class="step">
+                    3. Choose when:
+                </p>
+                <div class="items">
+                    <div class="input-field">
+                        <input type="date" placeholder="Choose date" name="Date" required>
+                    </div>
+                    <div class="input-field">
+                        <input type="time" placeholder="Choose time" name="Time" required>
+                    </div>
+
+                </div>
+            </div>
+            <div class="input-field button">
+                <input type="submit" value="Reserve">
+            </div>
+        </form>
+        @if (ViewBag.Success != null & ViewBag.Success) { 
+        <span class="text">Successfully made appointment!</span>
+        }
+
+    </div>
+
+}
+
+
+
+<script src="~/Content/my-js/salon.js"></script>

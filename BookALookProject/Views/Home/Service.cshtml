@@ -1,0 +1,35 @@
+﻿@model BookALookProject.Models.UserWithAppointments
+<link href="~/Content/my-css/login.css" rel="stylesheet" />
+
+<div class="l-container">
+    <div class="forms">
+        <div class="form login">
+            <span class="title">Add service</span>
+
+            <form action="@Url.Action("Service","Home")" method="post">
+                <select class="input-field select" id="category" name="CategoryName">
+                    <option data-position="1" value="Hair">Hair</option>
+                    <option data-position="2" value="Makeup">Makeup</option>
+                    <option data-position="3" value="Nails">Nails</option>
+                    <option data-position="4" value="Lashes & Brows">Lashes & Brows</option>
+                    <option data-position="5" value="Skin">Skin</option>
+                    <option data-position="6" value="Hair Removal">Hair removal</option>
+                </select>
+                <div class="input-field">
+                    <input type="text" placeholder="Enter service name" name="Name" required>
+                </div>
+                <div class="input-field">
+                    <input type="number" placeholder="Enter service price" name="Price" required>
+                </div>
+
+
+                <div class="input-field button">
+                    <input type="submit" value="Save">
+                </div>
+            </form>
+        </div>
+
+
+    </div>
+</div>
+
